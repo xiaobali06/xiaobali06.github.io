@@ -1,324 +1,573 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport"content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
   
   
-  <title>  LSI HBA驱动问题导致HBA异常重启及硬盘I/O Error |   Lemon </title>
+  <title>LSI HBA驱动问题导致HBA异常重启及硬盘I/O error | Hexo</title>
+  <meta name="description" content="解决方案： 升级HBA卡驱动27.125.01.00-1至或更新版本 升级微码卡微码430-08.01.05.00-1至或更新版本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LSI HBA驱动问题导致HBA异常重启及硬盘I&#x2F;O error">
+<meta property="og:url" content="http://example.com/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/index.html">
+<meta property="og:site_name" content="李尚往来">
+<meta property="og:description" content="解决方案： 升级HBA卡驱动27.125.01.00-1至或更新版本 升级微码卡微码430-08.01.05.00-1至或更新版本">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-08T02:42:36.000Z">
+<meta property="article:modified_time" content="2022-04-08T14:42:48.149Z">
+<meta property="article:author" content="xiaobali">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="李尚往来" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
- 
   
-    <link rel="icon" href="/images/favicon.png">
   
+  
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
 
 
-  
-<link rel="stylesheet" href="/nayo.min.css">
- 
-<meta name="generator" content="Hexo 6.1.0"></head>  
-  <body>   
-    
-      <header class="header-wrapper">
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-  <nav class="inner">
-    <div class="title">
-      <a href="/">
-        <img class="logo" src="/images/logo.png" />
-      </a>
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
 
-    <ul class="menu">
-      
-      
-      <li class="item">
-        <a class="link" id="menu-home" href="/">
-          <i class="iconfont icon-home" />
-        </a>
-      </li>
-      
-      
-      
-      <li class="item">
-        <a class="link" id="menu-archives" href="/archives">
-          <i class="iconfont icon-archives" />
-        </a>
-      </li>
-      
-      
-      
-      <li class="item">
-        <a class="link" id="menu-tags" href="/tags">
-          <i class="iconfont icon-tags" />
-        </a>
-      </li>
-      
-      
-      
-      <li class="item">
-        <a class="link" id="menu-about" href="/about">
-          <i class="iconfont icon-about" />
-        </a>
-      </li>
-      
-      
-      
-      <li class="item">
-        <a class="link" id="menu-search">
-          <i class="iconfont icon-search" />
-        </a>
-        </l>
 
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
         
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
       
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
     </ul>
-  </nav>
+
+    </nav>
+  </div>
 </header>
 
-<header class="mobile-header-wrapper">
-  <i id="mobile-toggle" class="iconfont icon-menu mobile-toggle"></i>
-</header>   
-
-      <div class="container">       
-          
-          
-            <div class="container-inner">  
-          
-
-          <article class="post slideDownMin">
   
-	
-<div class="header">
-		<p class="title">	
-			LSI HBA驱动问题导致HBA异常重启及硬盘I/O error
-		</p>
-		<div class="info">	
-			<time>
-				4月 08, 2022
-			</time>
-
-			
-			
-				<i class="iconfont icon-words"></i>
-				<span class="words">66
-				</span>
-			
-		</div>
-</div> 
-	
-
-    <script type="text/x-mathjax-config">
-        var post = document.getElementsByClassName("post")[0];  
-        MathJax.Hub.Config({
-            showProcessingMessages: false,
-            messageStyle: "none",    
-            tex2jax: {
-                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
-                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
-                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
-            },
-            "HTML-CSS": {            
-                showMathMenu: false
-            }
-        });
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
-    </script>
-    <style>.MathJax{outline:0;}</style>
-
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.2/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
- 
-
-	  <div class="typo post-content ">
-
-		
-
-			
-					<p>解决方案：</p>
-<p>升级HBA卡驱动27.125.01.00-1至或更新版本</p>
-<p>升级微码卡微码430-08.01.05.00-1至或更新版本</p>
-  	
-					
-	  </div>     
-	  
-
-	<div class="bottom">
-  <div class="other">
-    <div class="meta">
-      
-
-      
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="operate">
+    
       
-      <span class="text">Share</span>
-      <ul class="share">
-	   			             
-        <li class="iconfont 
-		icon-share-qq 
-		-mob-share-qq 
-		item"
-		></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-weixin 
-		-mob-share-weixin 
-		item"
-		></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-weibo 
-		-mob-share-weibo 
-		item"
-		></li>		
-   	   
-</ul>	
 
-<script id="-mob-share" 
-src="https://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
+    
       
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
 
-  
-  <nav class="nav">
-    <div class="link">
+    
       
-      <a href="/2022/04/07/kwai/" class="link-wrap">
-        <strong class="caption">older</strong>
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
         
-        <span class="title">
-          LSI HBA firmware问题导致盘符乱序
-        </span>
-      </a>
-      
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/07/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="title">快手PXE轮训不引导PXE解决方案</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-08T02:43:38.000Z" itemprop="datePublished">2022-04-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/" class="title">LSI HBA驱动问题导致HBA异常重启及硬盘I/O error</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-08T02:42:36.000Z" itemprop="datePublished">2022-04-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/07/kwai/" class="title">LSI HBA firmware问题导致盘符乱序</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-08T02:31:40.000Z" itemprop="datePublished">2022-04-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/07/about/me/" class="title">快手定制化微码</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-07T13:57:00.000Z" itemprop="datePublished">2022-04-07</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
     </div>
-    <div class="link">
-      
-      <a href="/2022/04/07/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="link-wrap">
-        <strong class="caption">newer</strong>
-        
-        <span class="title">
-          快手PXE轮训不引导PXE解决方案
-        </span>
-      </a>
-      
-    </div>
-  </nav>
+  </div>
   
-</div> 
-	
-<div class="comment">
 
     
+  </div>
+</aside>
 
-    <div id="comment">
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-LSI-HBA驱动问题导致HBA异常重启及硬盘I-O-error" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LSI HBA驱动问题导致HBA异常重启及硬盘I/O error
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/" class="article-date">
+	  <time datetime="2022-04-08T02:42:36.000Z" itemprop="datePublished">2022-04-08</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>解决方案：</p>
+<p>升级HBA卡驱动27.125.01.00-1至或更新版本</p>
+<p>升级微码卡微码430-08.01.05.00-1至或更新版本</p>
 
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/" title="LSI HBA驱动问题导致HBA异常重启及硬盘I/O error" target="_blank" rel="external">http://example.com/2022/04/07/LSI-HBA驱动问题导致HBA异常重启及硬盘I-O-error/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
 
-    <script src='//unpkg.com/valine@v1.1.8-beta/dist/Valine.min.js'></script>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/04/07/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="快手PXE轮训不引导PXE解决方案"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/04/07/kwai/" title="LSI HBA firmware问题导致盘符乱序"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
 
     <script>
-        new Valine({
-            el: '#comment',
-            notify: false,
-            verify: false,
-            app_id: 'cFM0eCo0CQ9xmBXmHi1eltol-gzGzoHsz',
-            app_key: 'oh9tizsnvV2vNvWgqEvoNtQO',
-            path: window.location.pathname,
-            avatar: 'mm',
-            guest_info: ['nick', 'mail']
-        });
-    </script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
     
-</div>	
-</article>
-
-          </div> 
-      </div>            
-    
-        <i id="toTop" class="iconfont icon-backtotop"></i>
-
-  
-    <div class="none" id="search">
-    <div class="header">
-        <input type="text" 
-        placeholder="输入你想搜索的" 
-        id="search-input" 
-        class="input" />
-        
-        <i id="search-cancel" class="iconfont icon-cancel"></i>
-    </div>
-
-    <div id="search-result" class="result"></div>
-</div>
-     <div class="mobile-menu">      
-
-      
-      <img class="mobile-menu-icon" src= "/images/favicon.png" >  
-      
-
-         
-            
-
-            <a class="mobile-menu-link" href="/">首页
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/archives">归档
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/tags">标签
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/about">关于
-            </a>
-            
-         
-                          
-
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
-            
-         
-      
-</div>
-        
-    
-
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
 
      
-    
 
 
-<footer class="footer">
-	<div class="inner">
-		<div class="copyright">
-			&copy;
-			
-			2019 -
-			
-			2022
-			Lemon
 
-			<br/>
-			By <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
-		</div>
-	</div>
-</footer>   
 
-    
-<script src="/nayo.bundle.js"></script>
-           
-  </body>        
+
+
+
+</body>
 </html>
