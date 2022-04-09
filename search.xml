@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>快手定制化微码</title>
+    <url>/project/2022/04/08/top/</url>
+    <content><![CDATA[<p>快手定制化微码</p>
+<p>请点击链接下载快手微码，链接内容实时更新</p>
+<span id="more"></span>
+
+<p>链接：<a href="https://mdl.ink/T4jMei">https://mdl.ink/T4jMei</a></p>
+<p>密码：kwai</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SR655风扇1报错解决方案</title>
+    <url>/project/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>故障现象：</p>
+<p>机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。</p>
+<span id="more"></span>
+<p>解决方案：</p>
+<p>主板对风扇的设置正确值应该为2,   0或者1都是错误值。<br>0：must have full population of all fans  &#x2F;必须有全部风扇<br>1：no mandatory requirement  &#x2F;无强制要求<br>2：auto mode; check fan population based on the machine configuration  &#x2F;自动模式；根据机器配置检查风扇数量</p>
+<p>要更正该值：</p>
+<ol>
+<li>使用以下命令将手动虚拟风扇设置为 2：<br>#ipmitool raw 0x3c 0xa0 0x02</li>
+</ol>
+<p>2.使用以下命令检查值是否正确：<br>#ipmitool raw 0x3c 0xa1</p>
+<ol start="3">
+<li><p>设置好新值后，重启服务器，然后再次检查该值。 </p>
+</li>
+<li><p>如果可能，关闭服务器电源，拔下电源线，然后重新插入电源线并打开服务器电源。再次检查该值。</p>
+</li>
+</ol>
+<p>带外使用此命令: ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
+<p><img src="/project/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fengexian.png"> </p>
+<p>以下是lenovo Tips原文：</p>
+<p>SR655 reports Fan 1 going low but no Fan 1 is installed - Lenovo ThinkSystem SR655</p>
+<p>Symptom：</p>
+<p>AMD-based ThinkSystem 655 comes with one-CPU five-fan configuration, with no Fan 1 installed.</p>
+<p>However, users may see the system reports Fan 1 going low, with the following messages for example,<br>ad | 01&#x2F;23&#x2F;2018 | 00:47:25 | Fan FAN1_F_Speed | Lower Non-critical going low | Asserted | Reading 0 &lt; Threshold 2192 RPM<br>ae | 01&#x2F;23&#x2F;2018 | 00:47:25 | Fan FAN1_F_Speed | Lower Critical going low | Asserted | Reading 0 &lt; Threshold 1918 RPM</p>
+<p>If users check the mini FFDC.LOG under \mnt\sdmmc0p4\FFDC\logs\BMCDebuglog\info.log.1, they will see:<br>manual dummy fan&#x3D;0</p>
+<p>Affected Configurations：</p>
+<p>The system may be any of the following Lenovo servers:<br>    ThinkSystem SR655, Type 7Y00, any model<br>    ThinkSystem SR655, Type 7Z01, any model<br>This tip is not software specific.<br>This tip is not option specific.<br>The system has the symptom described above.</p>
+<p>Workaround：</p>
+<p>The correct value of the manual dummy fan should be 2. 0 or 1 is a wrong value. </p>
+<p>0：must have full population of all fans<br>1：no mandatory requirement<br>2：auto mode; check fan population based on the machine configuration </p>
+<p>To correct the value:</p>
+<ol>
+<li><p>Use the following command to set the manual dummy fan to 2:<br>#ipmitool raw 0x3c 0xa0 0x02 </p>
+</li>
+<li><p>Use the following command to check if the value is correct:<br>#ipmitool raw 0x3c 0xa1 </p>
+</li>
+<li><p>After setting the new value, restart the server, and then check the value again. </p>
+</li>
+<li><p>If possible, power off the server, remove the power cable, then plug cable back and power on the server. Check the value again.</p>
+</li>
+</ol>
+<p>EX: ipmitool -H IPaddress(target BMC IP) -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>主板电压报错解决方案</title>
+    <url>/project/2022/04/08/%E4%B8%BB%E6%9D%BF%E7%94%B5%E5%8E%8B%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>故障现象</p>
+<p>报错信息：Sensor SysBrd Vol Fault has transitioned to critical from a less severe state</p>
+<span id="more"></span>
+
+<p>解决方案</p>
+<p>遇到此类报错请更换主板，并收集好维修前后的ffdc日志,反馈cag确认。<br>请不要直接升级微码结单！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>三星01KR356内存批量更换指导</title>
+    <url>/project/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/</url>
+    <content><![CDATA[<p>背景:</p>
+<p>出货快手一批配有三星01KR356内存的机器出现有批次性的故障，一共8039台，需要批量性更换。</p>
+<span id="more"></span>
+<p>解决方案及操作流程:</p>
+<p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
+<p>2、 更换整机全部内存；</p>
+<p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
+<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#107;&#117;&#x61;&#105;&#x73;&#x68;&#111;&#x75;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#54;&#x38;&#46;&#55;&#x30;&#46;&#49;&#x32;&#53;">&#107;&#117;&#x61;&#105;&#x73;&#x68;&#111;&#x75;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#54;&#x38;&#46;&#55;&#x30;&#46;&#49;&#x32;&#53;</a>】</p>
+<p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
+<p>6、 下载FFDC解析工具：<a href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
+<p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>
+<p><img src="/project/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image1.png" alt="image1"></p>
+<p>8、 打开cmd，并且cd到此目录，运行命令：</p>
+<p>tzz_extract.bat 7X06CTO1WW_J301L3Z6_xcc_210209-200723.tzz，回车</p>
+<p><img src="/project/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image2.png" alt="image2"></p>
+<p>运行成功后，会显示：</p>
+<p>N0.C0.D0:  [S&#x2F;N: 1947_03AEB28C] Pass</p>
+<p>N0.C0.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C1.D0:  [S&#x2F;N: 1947_03AEB263] Pass</p>
+<p>N0.C1.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C2.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C2.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C3.D0:  [S&#x2F;N: 1947_03AEB27C] Pass</p>
+<p>N0.C3.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C4.D0:  [S&#x2F;N: 1947_03AEB1A0] Pass</p>
+<p>N0.C4.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C5.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C5.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C0.D0:  [S&#x2F;N: 1947_03AEB1DF] Pass</p>
+<p>N1.C0.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C1.D0:  [S&#x2F;N: 1947_03AEB1F6] Pass</p>
+<p>N1.C1.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C2.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C2.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C3.D0:  [S&#x2F;N: 1929_12AF88C0] Fail(PPR Pass)</p>
+<p>N1.C3.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C4.D0:  [S&#x2F;N: 1947_03AEB1E7] Pass</p>
+<p>N1.C4.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C5.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C5.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>若结果全为Empty和Pass，则证明机器内存没有问题，不需要更换；</p>
+<p>若结果存在除此两项外的结果，则证明内存存在问题，需要主动更换（故障结果举例：Fail(OverFlow)&#x2F;Fail(PPR Pass)）。</p>
+<p>个别电脑存在工具运行失败的问题，失败现象：可正常解析FFDC日志，但是无法解析step text结果，存在此问题请更换电脑或者工具目录尝试,或重新安装7z工具尝试，若均无法解决，请收集FFDC日志并反馈给ipdc李昊。</p>
+<p>故障内存定位</p>
+<p>若运行step text工具发现有异常结果，请根据step text的运行结果更换故障内存，以上面运行结果举例：</p>
+<p>异常内存信息：N1.C3.D0:  [S&#x2F;N: 1929_12AF88C0] Fail(PPR Pass)</p>
+<p>打开机器的web界面，查看内存的具体信息，并对照内存S&#x2F;N，找出故障S&#x2F;N为12AF88C0的内存，如图所示，记录物理槽位并下电更换：</p>
+<p><img src="/project/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image3.png" alt="image3"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>快手PXE轮训不引导PXE解决方案</title>
+    <url>/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>·涉及机型：SR650&#x2F;SR590&#x2F;SR570&#x2F;SR655</p>
+<span id="more"></span>
+
+<p>**SR650&#x2F;SR590&#x2F;SR570</p>
+<p>故障现象：</p>
+<p>如图出现pxe一直轮训，不引导PXE。<br><img src="/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image1.jpg" alt="image1"></p>
+<p>解决方案：</p>
+<p>修改PCI 64-Bit Resource Allocation选项为AUTO，保存重启。<br>Uefi路径：<br>system settings –&gt; Devices and I&#x2F;O ports –&gt; PCI 64-Bit Resource Allocation –&gt;  auto.<br><img src="/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image2.jpg" alt="image2"></p>
+<p>**SR655</p>
+<p>故障现象：</p>
+<p>PXE不轮询，找不到PXE服务器，无法PXE</p>
+<p>解决方案：</p>
+<p>升级uefi到cfe1k2g-5.00以上版本即可解决。<br>注：cfe1k2g以上版本（如cfe1k2i）可在bmc中直接上传刷新，无需使用一下方式。</p>
+<p>刷新方法：<br>升级 UEFI 版本为 cfe1k2g-5.00，使用以下命令执行 UEFI 微码<br>升级程序，标黄部分为 BMC 地址和账户信息：<br>Yafuflash -nw -ip 10.245.40.169 -u admin -p kuaishou -d<br>0x02 lnvgy_fw_uefi_cfe1k2g-5.00_anyos_32-64.rom<br><img src="/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image3.jpg" alt="image3"><br>升级程序执行完毕后重启设备，重启完成后完成微码升级。<br>Ipmitool -I lanplus –H 10.245.40.169 -U admin -P kuaishou power reset</p>
+<p>验证方法：<br>使用 IPMI 命令<br>ipmitool raw 0x3c 0x40 0x06 0x00<br>得到返回值为<br>43 46 45 31 4b 32 47 35 30 30<br>即为 UEFI 已升至 cfe1k2g-5.00 版本</p>
+<p>回退方案：<br>如升级至 cfe1k2g-5.00 版本后出现问题可参照升级方法将版本<br>回退至 cfe1k2e-5.00 版本<br>Yafuflash -nw -ip 10.245.40.169 -u admin -p kuaishou -d<br>0x02 lnvgy_fw_uefi_cfe1k2e-5.00_anyos_32-64.rom</p>
+<p>附件下载： </p>
+<p>SR655_UEFI刷新工具&amp;rom文件.zip<br>链接：<a href="https://mdl.ink/T0DebL">https://mdl.ink/T0DebL</a><br>密码：8738</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>LSI HBA驱动问题导致HBA异常重启及硬盘I/O error</title>
+    <url>/project/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/</url>
+    <content><![CDATA[<p>解决方案：</p>
+<span id="more"></span>
+<p>升级HBA卡驱动27.125.01.00-1至或更新版本</p>
+<p>升级微码卡微码430-08.01.05.00-1至或更新版本</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>LSI HBA firmware问题导致盘符乱序</title>
+    <url>/project/2022/04/07/kwai/</url>
+    <content><![CDATA[<p>解决方案：</p>
+<span id="more"></span>
+<p>升级HBA卡驱动27.125.01.00-1至或更新版本</p>
+<p>升级微码卡微码430-08.01.05.00-1至或更新版本</p>
+]]></content>
+  </entry>
+</search>
