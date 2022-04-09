@@ -70,15 +70,15 @@
 
 <p>**SR650&#x2F;SR590&#x2F;SR570</p>
 <p>故障现象：</p>
-<p>如图出现pxe一直轮训，不引导PXE。<br><img src="/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image1.jpg" alt="image1"></p>
+<p>如图出现pxe一直轮训，不引导PXE。<br><img src="/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image1.jpg" alt="image1"></p>
 <p>解决方案：</p>
-<p>修改PCI 64-Bit Resource Allocation选项为AUTO，保存重启。<br>Uefi路径：<br>system settings –&gt; Devices and I&#x2F;O ports –&gt; PCI 64-Bit Resource Allocation –&gt;  auto.<br><img src="/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image2.jpg" alt="image2"></p>
+<p>修改PCI 64-Bit Resource Allocation选项为AUTO，保存重启。<br>Uefi路径：<br>system settings –&gt; Devices and I&#x2F;O ports –&gt; PCI 64-Bit Resource Allocation –&gt;  auto.<br><img src="/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image2.jpg" alt="image2"></p>
 <p>**SR655</p>
 <p>故障现象：</p>
 <p>PXE不轮询，找不到PXE服务器，无法PXE</p>
 <p>解决方案：</p>
 <p>升级uefi到cfe1k2g-5.00以上版本即可解决。<br>注：cfe1k2g以上版本（如cfe1k2i）可在bmc中直接上传刷新，无需使用一下方式。</p>
-<p>刷新方法：<br>升级 UEFI 版本为 cfe1k2g-5.00，使用以下命令执行 UEFI 微码<br>升级程序，标黄部分为 BMC 地址和账户信息：<br>Yafuflash -nw -ip 10.245.40.169 -u admin -p kuaishou -d<br>0x02 lnvgy_fw_uefi_cfe1k2g-5.00_anyos_32-64.rom<br><img src="/project/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image3.jpg" alt="image3"><br>升级程序执行完毕后重启设备，重启完成后完成微码升级。<br>Ipmitool -I lanplus –H 10.245.40.169 -U admin -P kuaishou power reset</p>
+<p>刷新方法：<br>升级 UEFI 版本为 cfe1k2g-5.00，使用以下命令执行 UEFI 微码<br>升级程序，标黄部分为 BMC 地址和账户信息：<br>Yafuflash -nw -ip 10.245.40.169 -u admin -p kuaishou -d<br>0x02 lnvgy_fw_uefi_cfe1k2g-5.00_anyos_32-64.rom<br><img src="/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image3.jpg" alt="image3"><br>升级程序执行完毕后重启设备，重启完成后完成微码升级。<br>Ipmitool -I lanplus –H 10.245.40.169 -U admin -P kuaishou power reset</p>
 <p>验证方法：<br>使用 IPMI 命令<br>ipmitool raw 0x3c 0x40 0x06 0x00<br>得到返回值为<br>43 46 45 31 4b 32 47 35 30 30<br>即为 UEFI 已升至 cfe1k2g-5.00 版本</p>
 <p>回退方案：<br>如升级至 cfe1k2g-5.00 版本后出现问题可参照升级方法将版本<br>回退至 cfe1k2e-5.00 版本<br>Yafuflash -nw -ip 10.245.40.169 -u admin -p kuaishou -d<br>0x02 lnvgy_fw_uefi_cfe1k2e-5.00_anyos_32-64.rom</p>
 <p>附件下载： </p>
@@ -89,14 +89,14 @@
     <div class="pagenator post-pagenator">
     
     
-        <a class="extend prev post-prev" href="/project/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/">prev</a>
+        <a class="extend prev post-prev" href="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/">prev</a>
     
 
     
     <p>last update time 2022-04-09</p>
     
     
-        <a class="extend next post-next" href="/project/2022/04/08/top/">next</a>
+        <a class="extend next post-next" href="/2022/04/08/top/">next</a>
     
     </div>
 
