@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+ <html lang="zh-Hans"> 
+<head>
+  <meta charset="utf-8">
+  
+  <title>SR655风扇1报错解决方案 | 李尚往来</title>
+  <meta name="author" content="xiaobali">
+
+  
+  <meta name="description" content="故障现象：
+机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。">
+  
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="p-name title" itemprop="headline name">SR655风扇1报错解决方案</h1>
+  
+
+    <time class="dt-published" datetime="2022-04-08T18:43:39.000Z">
+  <span class="day">8</span><span class="month">Apr</span>
+</time>
+  </header>
+  <div class="e-content entry-content">
+    
+      <p>故障现象：</p>
+<p>机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。</p>
+<span id="more"></span>
+<p>解决方案：</p>
+<p>主板对风扇的设置正确值应该为2,   0或者1都是错误值。<br>0：must have full population of all fans  &#x2F;必须有全部风扇<br>1：no mandatory requirement  &#x2F;无强制要求<br>2：auto mode; check fan population based on the machine configuration  &#x2F;自动模式；根据机器配置检查风扇数量</p>
+<p>要更正该值：</p>
+<ol>
+<li>使用以下命令将手动虚拟风扇设置为 2：<br>#ipmitool raw 0x3c 0xa0 0x02</li>
+</ol>
+<p>2.使用以下命令检查值是否正确：<br>#ipmitool raw 0x3c 0xa1</p>
+<ol start="3">
+<li><p>设置好新值后，重启服务器，然后再次检查该值。 </p>
+</li>
+<li><p>如果可能，关闭服务器电源，拔下电源线，然后重新插入电源线并打开服务器电源。再次检查该值。</p>
+</li>
+</ol>
+<p>带外使用此命令: ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
+<p><img src="/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fengexian.png"> </p>
+<p>以下是lenovo Tips原文：</p>
+<p>SR655 reports Fan 1 going low but no Fan 1 is installed - Lenovo ThinkSystem SR655</p>
+<p>Symptom：</p>
+<p>AMD-based ThinkSystem 655 comes with one-CPU five-fan configuration, with no Fan 1 installed.</p>
+<p>However, users may see the system reports Fan 1 going low, with the following messages for example,<br>ad | 01&#x2F;23&#x2F;2018 | 00:47:25 | Fan FAN1_F_Speed | Lower Non-critical going low | Asserted | Reading 0 &lt; Threshold 2192 RPM<br>ae | 01&#x2F;23&#x2F;2018 | 00:47:25 | Fan FAN1_F_Speed | Lower Critical going low | Asserted | Reading 0 &lt; Threshold 1918 RPM</p>
+<p>If users check the mini FFDC.LOG under \mnt\sdmmc0p4\FFDC\logs\BMCDebuglog\info.log.1, they will see:<br>manual dummy fan&#x3D;0</p>
+<p>Affected Configurations：</p>
+<p>The system may be any of the following Lenovo servers:<br>    ThinkSystem SR655, Type 7Y00, any model<br>    ThinkSystem SR655, Type 7Z01, any model<br>This tip is not software specific.<br>This tip is not option specific.<br>The system has the symptom described above.</p>
+<p>Workaround：</p>
+<p>The correct value of the manual dummy fan should be 2. 0 or 1 is a wrong value. </p>
+<p>0：must have full population of all fans<br>1：no mandatory requirement<br>2：auto mode; check fan population based on the machine configuration </p>
+<p>To correct the value:</p>
+<ol>
+<li><p>Use the following command to set the manual dummy fan to 2:<br>#ipmitool raw 0x3c 0xa0 0x02 </p>
+</li>
+<li><p>Use the following command to check if the value is correct:<br>#ipmitool raw 0x3c 0xa1 </p>
+</li>
+<li><p>After setting the new value, restart the server, and then check the value again. </p>
+</li>
+<li><p>If possible, power off the server, remove the power cable, then plug cable back and power on the server. Check the value again.</p>
+</li>
+</ol>
+<p>EX: ipmitool -H IPaddress(target BMC IP) -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+</div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2022 xiaobali
+  
+</p>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+
+<script src="/js/phasebeam.js"></script>
+
+</body>
+</html>
