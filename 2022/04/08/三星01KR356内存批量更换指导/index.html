@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+ <html lang="zh-Hans"> 
+<head>
+  <meta charset="utf-8">
+  
+  <title>三星01KR356内存批量更换指导 | 李尚往来</title>
+  <meta name="author" content="xiaobali">
+
+  
+  <meta name="description" content="背景:
+出货快手一批配有三星01KR356内存的机器出现有批次性的故障，一共8039台，需要批量性更换。
+解决方案及操作流程:">
+  
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="p-name title" itemprop="headline name">三星01KR356内存批量更换指导</h1>
+  
+
+    <time class="dt-published" datetime="2022-04-08T17:50:18.000Z">
+  <span class="day">8</span><span class="month">Apr</span>
+</time>
+  </header>
+  <div class="e-content entry-content">
+    
+      <p>背景:</p>
+<p>出货快手一批配有三星01KR356内存的机器出现有批次性的故障，一共8039台，需要批量性更换。</p>
+<p>解决方案及操作流程:</p>
+<span id="more"></span>
+<p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
+<p>2、 更换整机全部内存；</p>
+<p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
+<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#x6b;&#117;&#97;&#x69;&#115;&#104;&#111;&#117;&#x40;&#x31;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#55;&#48;&#x2e;&#49;&#x32;&#53;">&#x6b;&#117;&#97;&#x69;&#115;&#104;&#111;&#117;&#x40;&#x31;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#55;&#48;&#x2e;&#49;&#x32;&#53;</a>】</p>
+<p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a target="_blank" rel="noopener" href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
+<p>6、 下载FFDC解析工具：<a target="_blank" rel="noopener" href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
+<p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>
+<p><img src="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image1.png" alt="image1"></p>
+<p>8、 打开cmd，并且cd到此目录，运行命令：</p>
+<p>tzz_extract.bat 7X06CTO1WW_J301L3Z6_xcc_210209-200723.tzz，回车</p>
+<p><img src="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image2.png" alt="image2"></p>
+<p>运行成功后，会显示：</p>
+<p>N0.C0.D0:  [S&#x2F;N: 1947_03AEB28C] Pass</p>
+<p>N0.C0.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C1.D0:  [S&#x2F;N: 1947_03AEB263] Pass</p>
+<p>N0.C1.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C2.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C2.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C3.D0:  [S&#x2F;N: 1947_03AEB27C] Pass</p>
+<p>N0.C3.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C4.D0:  [S&#x2F;N: 1947_03AEB1A0] Pass</p>
+<p>N0.C4.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C5.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N0.C5.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C0.D0:  [S&#x2F;N: 1947_03AEB1DF] Pass</p>
+<p>N1.C0.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C1.D0:  [S&#x2F;N: 1947_03AEB1F6] Pass</p>
+<p>N1.C1.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C2.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C2.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C3.D0:  [S&#x2F;N: 1929_12AF88C0] Fail(PPR Pass)</p>
+<p>N1.C3.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C4.D0:  [S&#x2F;N: 1947_03AEB1E7] Pass</p>
+<p>N1.C4.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C5.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>N1.C5.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
+<p>若结果全为Empty和Pass，则证明机器内存没有问题，不需要更换；</p>
+<p>若结果存在除此两项外的结果，则证明内存存在问题，需要主动更换（故障结果举例：Fail(OverFlow)&#x2F;Fail(PPR Pass)）。</p>
+<p>个别电脑存在工具运行失败的问题，失败现象：可正常解析FFDC日志，但是无法解析step text结果，存在此问题请更换电脑或者工具目录尝试,或重新安装7z工具尝试，若均无法解决，请收集FFDC日志并反馈给ipdc李昊。</p>
+<p>故障内存定位</p>
+<p>若运行step text工具发现有异常结果，请根据step text的运行结果更换故障内存，以上面运行结果举例：</p>
+<p>异常内存信息：N1.C3.D0:  [S&#x2F;N: 1929_12AF88C0] Fail(PPR Pass)</p>
+<p>打开机器的web界面，查看内存的具体信息，并对照内存S&#x2F;N，找出故障S&#x2F;N为12AF88C0的内存，如图所示，记录物理槽位并下电更换：</p>
+<p><img src="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image3.png" alt="image3"></p>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+  </div>
+  
+</article>
+</div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2022 xiaobali
+  
+</p>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+
+<script src="/js/phasebeam.js"></script>
+
+</body>
+</html>
