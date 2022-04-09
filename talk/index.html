@@ -8,13 +8,12 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/null">
     <link rel="icon" type="image/png" href="/null">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>SR655风扇1报错解决方案 - 李尚往来</title>
+    <title>李尚往来</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;故障现象：&lt;/p&gt;
-&lt;p&gt;机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。&lt;/p&gt;">
+    <meta name="description" content="">
     <meta name="author" content="xiaobali">
     <meta name="keywords" content="">
     <style>
@@ -423,109 +422,15 @@ header .header__right .dropdown-menus .dropdown-menu {
         <div id="page-main" class="main-content">
         <div class="mg-top">
             
-
 <article class="page">
-<div id="post-meta-m">
-    <div class="post-meta" id="post-meta">
-  <h3>SR655风扇1报错解决方案</h3>
-    
-      <span class="post-meta-label">
-        xiaobali
-      </span>
-    
-    
-      <span class="post-meta-label">
-        <span class="p-dot"></span>
-        <time datetime="2022-04-09 02:43" pubdate>
-          2022-04-09
-        </time>
-      </span>
-    
-    
-      
-      <span class="post-meta">
-        <span class="p-dot"></span>
-        共 542 字
-      </span>
-    
-    
-    
-  </div>
-  
-</div>
-<div class="article-m">
-  <div class="post-toc">
-    
-  </div>
-    <div id="article">
-      <div id="post-content" class="markdown-body textretty">
-        <p>故障现象：</p>
-<p>机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。</p>
-<span id="more"></span>
-<p>解决方案：</p>
-<p>主板对风扇的设置正确值应该为2,   0或者1都是错误值。<br>0：must have full population of all fans  &#x2F;必须有全部风扇<br>1：no mandatory requirement  &#x2F;无强制要求<br>2：auto mode; check fan population based on the machine configuration  &#x2F;自动模式；根据机器配置检查风扇数量</p>
-<p>要更正该值：</p>
-<ol>
-<li>使用以下命令将手动虚拟风扇设置为 2：<br>#ipmitool raw 0x3c 0xa0 0x02</li>
-</ol>
-<p>2.使用以下命令检查值是否正确：<br>#ipmitool raw 0x3c 0xa1</p>
-<ol start="3">
-<li><p>设置好新值后，重启服务器，然后再次检查该值。 </p>
-</li>
-<li><p>如果可能，关闭服务器电源，拔下电源线，然后重新插入电源线并打开服务器电源。再次检查该值。</p>
-</li>
-</ol>
-<p>带外使用此命令: ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
-<p><img src="/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fengexian.png"> </p>
-<p>以下是lenovo Tips原文：</p>
-<p>SR655 reports Fan 1 going low but no Fan 1 is installed - Lenovo ThinkSystem SR655</p>
-<p>Symptom：</p>
-<p>AMD-based ThinkSystem 655 comes with one-CPU five-fan configuration, with no Fan 1 installed.</p>
-<p>However, users may see the system reports Fan 1 going low, with the following messages for example,<br>ad | 01&#x2F;23&#x2F;2018 | 00:47:25 | Fan FAN1_F_Speed | Lower Non-critical going low | Asserted | Reading 0 &lt; Threshold 2192 RPM<br>ae | 01&#x2F;23&#x2F;2018 | 00:47:25 | Fan FAN1_F_Speed | Lower Critical going low | Asserted | Reading 0 &lt; Threshold 1918 RPM</p>
-<p>If users check the mini FFDC.LOG under \mnt\sdmmc0p4\FFDC\logs\BMCDebuglog\info.log.1, they will see:<br>manual dummy fan&#x3D;0</p>
-<p>Affected Configurations：</p>
-<p>The system may be any of the following Lenovo servers:<br>    ThinkSystem SR655, Type 7Y00, any model<br>    ThinkSystem SR655, Type 7Z01, any model<br>This tip is not software specific.<br>This tip is not option specific.<br>The system has the symptom described above.</p>
-<p>Workaround：</p>
-<p>The correct value of the manual dummy fan should be 2. 0 or 1 is a wrong value. </p>
-<p>0：must have full population of all fans<br>1：no mandatory requirement<br>2：auto mode; check fan population based on the machine configuration </p>
-<p>To correct the value:</p>
-<ol>
-<li><p>Use the following command to set the manual dummy fan to 2:<br>#ipmitool raw 0x3c 0xa0 0x02 </p>
-</li>
-<li><p>Use the following command to check if the value is correct:<br>#ipmitool raw 0x3c 0xa1 </p>
-</li>
-<li><p>After setting the new value, restart the server, and then check the value again. </p>
-</li>
-<li><p>If possible, power off the server, remove the power cable, then plug cable back and power on the server. Check the value again.</p>
-</li>
-</ol>
-<p>EX: ipmitool -H IPaddress(target BMC IP) -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
-
-      </div>
+    <div id="post-meta-m">
+            <h3>说说</h3>
     </div>
-</div>
-
-
-<div class="post-footer">
-  
-
-  <div class="post-copyright">
-    <p style="margin: 5px 0;">文章作者：<a href="/">xiaobali</a></p>
-    <p style="margin: 5px 0;">文章链接：<a href="https://xiaobali06.github.io/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">https://xiaobali06.github.io/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</a></p>
-    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，转载请注明出处，谢谢。</p>
-  </div>
-  
-</div>
-
-    <!-- Comments -->
-    <div class="comments">
+    <div class="article-m" style="margin-top: 10px;">
         
         
     </div>
-
 </article>
-
-
         </div>
         
 <footer class="text-center">
@@ -542,8 +447,6 @@ header .header__right .dropdown-menus .dropdown-menu {
 </footer>
 
 <div class="p-btn">
-    
-        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
     
     <a href="#top" class="click-btn">
       <i id="i-up"></i>
@@ -579,50 +482,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 </script>
 
 
-<script>
-    var postImg = document.querySelectorAll("article[class=page] img");
-    for (let imgi = 0; imgi < postImg.length; imgi++) {
-        postImg[imgi].onclick = () => {
-            let zoomImg = document.createElement("div");
-            zoomImg.id = "zoomImg";
-            zoomImg.innerHTML = `<div id="zoom-picture"></div>
-    <div class="poptrox-overlay"
-        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
-        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
-        <div
-            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
-        </div>
-        <div class="poptrox-popup"
-            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
-            <div class="loader" style="display: none;"></div>
-            <div class="pic" style="text-indent: 0px;"><img
-                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
-                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
-        </div>
-    </div>`;
-            document.body.appendChild(zoomImg);
-                document.querySelector("#zoomImg").onclick = () => {
-                    document.querySelector("#zoomImg").remove();
-                }
-        }
-    }
-    
-</script>
 
 
-
-
-    <script>
-        query("#toc-btn")[0].onclick = () => {
-            if (query(".post-toc")[0].innerHTML) {
-                toggleClass(".post-toc", "display-inline");
-            }
-        }
-
-        if (!query(".post-toc")[0].innerHTML) {
-            addClass("#toc-btn","display-none");
-        }
-    </script>
 
 
 
