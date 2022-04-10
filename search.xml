@@ -12,6 +12,25 @@
 ]]></content>
   </entry>
   <entry>
+    <title>GPU带宽问题处理流程</title>
+    <url>/2022/04/09/GPU%E5%B8%A6%E5%AE%BD%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>！！操作前联系李昊，每操作一步都要反馈！！！！！！</p>
+<span id="more"></span>
+
+<p>24台GPU报修设备操作规范：<br>！！操作前联系李昊，每操作一步都要反馈！！！！！！</p>
+<ol>
+<li>客户报修数据需要收集下信息反馈到L2。</li>
+<li>收集FFDC日志</li>
+<li>插上带有MiniOS的U盘，运行指令确认下GPU带宽问题。（如果客户端已经提供插槽信息数据，此步骤可省略，（lspci -n -d 10de:1eb8 -vvv |grep -i width 输入此命令确认故障是否存在）</li>
+<li>观察GPU卡和Riser卡是否有松动，是否插好，如果有拍照记录。如果不能判定，也同时拍照记录（如果现场机房不允许拍照就算了）。</li>
+<li>拔下GPU卡和Riser卡进行外观目测，特别需要注意0402，0201等非常小的电容（参考下面图片一），金手指上面是否有黑点或者颜色不鲜亮或者异物（有的可能是透明颜色的）等异常。如果有发现需要拍照，最好是用有微距拍摄功能的手机。</li>
+<li>如果发现外观异常就直接进行更换处理。</li>
+<li>如果第五步未发现异常，进行GPU和Riser卡重新插拔确认是否可修复。不可修复的话进行直接换卡（先尝试换GPU，不修复的话尝试换Riser卡，最后再不行再尝试换CPU），做好记录，故障备件截件到L2。</li>
+<li>确认修复命令请参考，需要进行拍照记录。（关于指令问题，不清楚的可以直接联系L2 瀚冬。）</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>SR655 FAN1报错解决方案</title>
     <url>/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p>故障现象：</p>
@@ -78,7 +97,7 @@
 <p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
 <p>2、 更换整机全部内存；</p>
 <p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
-<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#x6b;&#117;&#x61;&#105;&#115;&#104;&#111;&#117;&#x40;&#49;&#57;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#55;&#48;&#46;&#x31;&#50;&#53;">&#x6b;&#117;&#x61;&#105;&#115;&#104;&#111;&#117;&#x40;&#49;&#57;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#55;&#48;&#46;&#x31;&#50;&#53;</a>】</p>
+<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#107;&#x75;&#97;&#105;&#x73;&#104;&#x6f;&#x75;&#64;&#x31;&#x39;&#x32;&#46;&#49;&#54;&#x38;&#x2e;&#x37;&#x30;&#x2e;&#49;&#50;&#x35;">&#107;&#x75;&#97;&#105;&#x73;&#104;&#x6f;&#x75;&#64;&#x31;&#x39;&#x32;&#46;&#49;&#54;&#x38;&#x2e;&#x37;&#x30;&#x2e;&#49;&#50;&#x35;</a>】</p>
 <p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
 <p>6、 下载FFDC解析工具：<a href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
 <p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>

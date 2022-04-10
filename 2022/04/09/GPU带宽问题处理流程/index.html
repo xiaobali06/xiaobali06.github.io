@@ -8,12 +8,12 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/source/favicon.ico">
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>About me - 李尚往来</title>
+    <title>GPU带宽问题处理流程 - 李尚往来</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="">
+    <meta name="description" content="&lt;p&gt;！！操作前联系李昊，每操作一步都要反馈！！！！！！&lt;/p&gt;">
     <meta name="author" content="xiaobali">
     <meta name="keywords" content="">
     <style>
@@ -446,19 +446,65 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 <article class="page">
 <div id="post-meta-m">
-        <h3>About me</h3>
+    <div class="post-meta" id="post-meta">
+  <h3>GPU带宽问题处理流程</h3>
+    
+      <span class="post-meta-label">
+        xiaobali
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2022-04-10 10:54" pubdate>
+          2022-04-10
+        </time>
+      </span>
+    
+    
+    
+    
+  </div>
+  
 </div>
 <div class="article-m">
-    <div class="post-toc">
-        
-    </div>
-    <div id="article" class="markdown-body textretty">
-        
+  <div class="post-toc">
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <p>！！操作前联系李昊，每操作一步都要反馈！！！！！！</p>
+<span id="more"></span>
+
+<p>24台GPU报修设备操作规范：<br>！！操作前联系李昊，每操作一步都要反馈！！！！！！</p>
+<ol>
+<li>客户报修数据需要收集下信息反馈到L2。</li>
+<li>收集FFDC日志</li>
+<li>插上带有MiniOS的U盘，运行指令确认下GPU带宽问题。（如果客户端已经提供插槽信息数据，此步骤可省略，（lspci -n -d 10de:1eb8 -vvv |grep -i width 输入此命令确认故障是否存在）</li>
+<li>观察GPU卡和Riser卡是否有松动，是否插好，如果有拍照记录。如果不能判定，也同时拍照记录（如果现场机房不允许拍照就算了）。</li>
+<li>拔下GPU卡和Riser卡进行外观目测，特别需要注意0402，0201等非常小的电容（参考下面图片一），金手指上面是否有黑点或者颜色不鲜亮或者异物（有的可能是透明颜色的）等异常。如果有发现需要拍照，最好是用有微距拍摄功能的手机。</li>
+<li>如果发现外观异常就直接进行更换处理。</li>
+<li>如果第五步未发现异常，进行GPU和Riser卡重新插拔确认是否可修复。不可修复的话进行直接换卡（先尝试换GPU，不修复的话尝试换Riser卡，最后再不行再尝试换CPU），做好记录，故障备件截件到L2。</li>
+<li>确认修复命令请参考，需要进行拍照记录。（关于指令问题，不清楚的可以直接联系L2 瀚冬。）</li>
+</ol>
+
+      </div>
     </div>
 </div>
 
-</article>
 
+<div class="post-footer">
+  
+
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    </div>
+
+</article>
 
 
         </div>
@@ -496,6 +542,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 </footer>
 
 <div class="p-btn">
+    
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
     
     <a href="#top" class="click-btn">
       <i id="i-up"></i>
@@ -563,6 +611,18 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 
 
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
 
 
 
