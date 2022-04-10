@@ -97,7 +97,7 @@
 <p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
 <p>2、 更换整机全部内存；</p>
 <p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
-<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#107;&#x75;&#x61;&#105;&#115;&#104;&#x6f;&#x75;&#x40;&#49;&#x39;&#x32;&#x2e;&#x31;&#x36;&#56;&#46;&#x37;&#48;&#46;&#x31;&#50;&#x35;">&#107;&#x75;&#x61;&#105;&#115;&#104;&#x6f;&#x75;&#x40;&#49;&#x39;&#x32;&#x2e;&#x31;&#x36;&#56;&#46;&#x37;&#48;&#46;&#x31;&#50;&#x35;</a>】</p>
+<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#107;&#x75;&#x61;&#x69;&#115;&#x68;&#x6f;&#x75;&#x40;&#x31;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#55;&#x30;&#x2e;&#49;&#50;&#x35;">&#107;&#x75;&#x61;&#x69;&#115;&#x68;&#x6f;&#x75;&#x40;&#x31;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#55;&#x30;&#x2e;&#49;&#50;&#x35;</a>】</p>
 <p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
 <p>6、 下载FFDC解析工具：<a href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
 <p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>
