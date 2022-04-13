@@ -8,13 +8,12 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/source/favicon.ico">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>三星01KR356内存批量更换指导 - 李尚往来</title>
+    <title>李尚往来</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;背景:&lt;/p&gt;
-&lt;p&gt;出货快手一批配有三星01KR356内存的机器出现有批次性的故障，一共8039台，需要批量性更换。&lt;/p&gt;">
+    <meta name="description" content="">
     <meta name="author" content="xiaobali">
     <meta name="keywords" content="">
     <style>
@@ -447,107 +446,73 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 <article class="page">
 <div id="post-meta-m">
-    <div class="post-meta" id="post-meta">
-  <h3>三星01KR356内存批量更换指导</h3>
-    
-      <span class="post-meta-label">
-        xiaobali
-      </span>
-    
-    
-      <span class="post-meta-label">
-        <span class="p-dot"></span>
-        <time datetime="2022-04-09 01:50" pubdate>
-          2022-04-09
-        </time>
-      </span>
-    
-    
-    
-    
-      
-      <span class="post-meta">
-        <span class="p-dot"></span>
-        <span id="busuanzi_container_page_pv">
-          共 <span id="busuanzi_value_page_pv"></span> 次阅读
-        </span>
-      </span>
-    
-  </div>
-  
+        <h3></h3>
 </div>
 <div class="article-m">
-  <div class="post-toc">
-    
-  </div>
-    <div id="article">
-      <div id="post-content" class="markdown-body textretty">
-        <p>背景:</p>
-<p>出货快手一批配有三星01KR356内存的机器出现有批次性的故障，一共8039台，需要批量性更换。</p>
-<span id="more"></span>
-<p>解决方案及操作流程:</p>
-<p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
-<p>2、 更换整机全部内存；</p>
-<p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
-<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#107;&#117;&#97;&#x69;&#115;&#104;&#111;&#117;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#x38;&#x2e;&#55;&#48;&#46;&#49;&#50;&#x35;">&#107;&#117;&#97;&#x69;&#115;&#104;&#111;&#117;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#x38;&#x2e;&#55;&#48;&#46;&#49;&#50;&#x35;</a>】</p>
-<p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a target="_blank" rel="noopener" href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
-<p>6、 下载FFDC解析工具：<a target="_blank" rel="noopener" href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
-<p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>
-<p><img src="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image1.png" alt="image1"></p>
-<p>8、 打开cmd，并且cd到此目录，运行命令：</p>
-<p>tzz_extract.bat 7X06CTO1WW_J301L3Z6_xcc_210209-200723.tzz，回车</p>
-<p><img src="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image2.png" alt="image2"></p>
-<p>运行成功后，会显示：</p>
-<p>N0.C0.D0:  [S&#x2F;N: 1947_03AEB28C] Pass</p>
-<p>N0.C0.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C1.D0:  [S&#x2F;N: 1947_03AEB263] Pass</p>
-<p>N0.C1.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C2.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C2.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C3.D0:  [S&#x2F;N: 1947_03AEB27C] Pass</p>
-<p>N0.C3.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C4.D0:  [S&#x2F;N: 1947_03AEB1A0] Pass</p>
-<p>N0.C4.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C5.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N0.C5.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C0.D0:  [S&#x2F;N: 1947_03AEB1DF] Pass</p>
-<p>N1.C0.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C1.D0:  [S&#x2F;N: 1947_03AEB1F6] Pass</p>
-<p>N1.C1.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C2.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C2.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C3.D0:  [S&#x2F;N: 1929_12AF88C0] Fail(PPR Pass)</p>
-<p>N1.C3.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C4.D0:  [S&#x2F;N: 1947_03AEB1E7] Pass</p>
-<p>N1.C4.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C5.D0:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>N1.C5.D1:  [S&#x2F;N: 0000_00000000] Empty</p>
-<p>若结果全为Empty和Pass，则证明机器内存没有问题，不需要更换；</p>
-<p>若结果存在除此两项外的结果，则证明内存存在问题，需要主动更换（故障结果举例：Fail(OverFlow)&#x2F;Fail(PPR Pass)）。</p>
-<p>个别电脑存在工具运行失败的问题，失败现象：可正常解析FFDC日志，但是无法解析step text结果，存在此问题请更换电脑或者工具目录尝试,或重新安装7z工具尝试，若均无法解决，请收集FFDC日志并反馈给ipdc李昊。</p>
-<p>故障内存定位</p>
-<p>若运行step text工具发现有异常结果，请根据step text的运行结果更换故障内存，以上面运行结果举例：</p>
-<p>异常内存信息：N1.C3.D0:  [S&#x2F;N: 1929_12AF88C0] Fail(PPR Pass)</p>
-<p>打开机器的web界面，查看内存的具体信息，并对照内存S&#x2F;N，找出故障S&#x2F;N为12AF88C0的内存，如图所示，记录物理槽位并下电更换：</p>
-<p><img src="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/image3.png" alt="image3"></p>
-
-      </div>
-    </div>
-</div>
-
-
-<div class="post-footer">
-  
-
-</div>
-
-    <!-- Comments -->
-    <div class="comments">
-        
+    <div class="post-toc">
         
     </div>
+    <div id="article" class="markdown-body textretty">
+        <!DOCTYPE html>
+<html lang="Zh-CN">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>梦爱吃鱼</title>
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/GlumeL/Static@master/Butterfly/Glume/img/favicon.ico"> 
+  <link rel="stylesheet" href="css/love.css"> 
+  <script src="https://cdn.jsdelivr.net/gh/GlumeL/Static@master/Butterfly/Glume/js/Valine.min.js"></script> 
+ </head> 
+ <body> 
+  <div class="main"> 
+   <!-- 左边的头像 --> 
+   <div class="love"> 
+    <img src="https://q.qlogo.cn/g?b=qq&nk=1793890332&s=640" alt="love"> 
+    <!-- 中间的图片 --> 
+    <img src="/xtxt/love.png" alt="love"> 
+    <!-- 右边的头像 --> 
+    <img src="https://q.qlogo.cn/g?b=qq&nk=1034630181&s=640" alt="love"> 
+    <p id="lovexhjSitetime" class="lovetime"></p> 
+   </div> 
+  </div> 
+  <div id="vcomments"></div> 
+  <footer class="footer-nav"> 
+   <a>富强</a> 
+   <a>民主</a> 
+   <a>文明</a> 
+   <a>和谐</a> 
+   <a>自由</a> 
+   <a>平等</a> 
+   <a>公正</a> 
+   <a>法制</a> 
+   <a>爱国</a> 
+   <a>敬业</a> 
+   <a>诚实</a> 
+   <a>友善</a> 
+   <div class="icp"> 
+    <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备20017009号-1</a> 
+   </div> 
+   <div class="guoqi"></div> 
+  </footer> 
+  <script>
+      var valine = new Valine();
+      valine.init({
+        el: "#vcomments",
+        appId: "Wp1ioA04QuAXhySXzzbxK5fw-gzGzoHsz",
+        appKey: "d5WXcO4oo1DKV92dnYb0ynL2",
+        enableQQ: "true",
+        requiredFields: ['nick','mail'],
+        placeholder: "祝福我们吧",
+      });
+    </script>
+  <script src="js/love.js"></script>   
+ </body>
+</html>
+    </div>
+</div>
 
 </article>
+
 
 
         </div>
@@ -585,8 +550,6 @@ header .header__right .dropdown-menus .dropdown-menu {
 </footer>
 
 <div class="p-btn">
-    
-        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
     
     <a href="#top" class="click-btn">
       <i id="i-up"></i>
@@ -654,18 +617,6 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 
 
-
-    <script>
-        query("#toc-btn")[0].onclick = () => {
-            if (query(".post-toc")[0].innerHTML) {
-                toggleClass(".post-toc", "display-inline");
-            }
-        }
-
-        if (!query(".post-toc")[0].innerHTML) {
-            addClass("#toc-btn","display-none");
-        }
-    </script>
 
 
 
