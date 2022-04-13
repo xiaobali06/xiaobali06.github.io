@@ -13,7 +13,10 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="">
+    <meta name="description" content="&lt;p&gt;故障现象：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;故障原因为AcBel电源风扇设置的high fan speed threshold太低，导致电源还在正常工作时触发了风扇的临界值，报出pfa。电源微码已经通过验证，可以通过XCC去升级电源微码，不需要更换硬件。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此问题日志里面有power报错但实际机器电源灯正常未亮故障灯。&lt;/p&gt;">
     <meta name="author" content="xiaobali">
     <meta name="keywords" content="">
     <style>
@@ -485,6 +488,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 <pre><code>故障原因为AcBel电源风扇设置的high fan speed threshold太低，导致电源还在正常工作时触发了风扇的临界值，报出pfa。电源微码已经通过验证，可以通过XCC去升级电源微码，不需要更换硬件。
 </code></pre>
 <p>此问题日志里面有power报错但实际机器电源灯正常未亮故障灯。</p>
+<span id="more"></span>
+
 <p>报错如下：</p>
 <p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image001.png" alt="xcc日志报错"></p>
 <p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image003.png" alt="sel log"></p>
