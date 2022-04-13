@@ -8,12 +8,12 @@ a {
 }
 
 .main {
-    margin: 700px auto;
+    margin: 100px auto;
     text-align: center;
 }
 
 .main img {
-    width: 100px;
+    width: 700px;
     border-radius: 50%;
 }
 
