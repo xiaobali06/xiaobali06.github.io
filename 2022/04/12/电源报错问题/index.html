@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/source/favicon.ico">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>李尚往来</title>
+    <title>电源频繁报Predictive failure - 李尚往来</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -346,6 +346,13 @@ header .header__right .dropdown-menus .dropdown-menu {
     
 
     
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
     
     <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
     <noscript>
@@ -436,235 +443,77 @@ header .header__right .dropdown-menus .dropdown-menu {
         <div id="page-main" class="main-content">
         <div class="mg-top">
             
-  <div id="index-banner" class="text-center middle-center">
-    <div class="banner-text">
-        <h3 id="banner-name">
-            李尚往来
-        </h3>
-        <p class="slogan">
-          Hello World !
-        </p>
+
+<article class="page">
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>电源频繁报Predictive failure</h3>
+    
+      <span class="post-meta-label">
+        xiaobali
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2022-04-13 09:48" pubdate>
+          2022-04-13
+        </time>
+      </span>
+    
+    
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        <span id="busuanzi_container_page_pv">
+          共 <span id="busuanzi_value_page_pv"></span> 次阅读
+        </span>
+      </span>
+    
+  </div>
+  
+</div>
+<div class="article-m">
+  <div class="post-toc">
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <p>故障现象：</p>
+<pre><code>故障原因为AcBel电源风扇设置的high fan speed threshold太低，导致电源还在正常工作时触发了风扇的临界值，报出pfa。电源微码已经通过验证，可以通过XCC去升级电源微码，不需要更换硬件。
+</code></pre>
+<p>此问题日志里面有power报错但实际机器电源灯正常未亮故障灯。</p>
+<p>报错如下：</p>
+<p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image001.png" alt="xcc日志报错"></p>
+<p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image003.png" alt="sel log"></p>
+<p>解决方案：</p>
+<p>升级电源微码至2.62</p>
+<p>电源微码升级步骤：</p>
+<p>1、先将电源模式调整为冗余模式（Redundant）；<br>！<a href="image007.png"></a></p>
+<p>2、到固件升级界面，上传微码进行升级，注意两个电源要逐一升级，操作升级电源微码不可以断电；</p>
+<p>3、升级完成后再将电源模式改回至非冗余模式；</p>
+<p>4、清理日志，反馈结单。</p>
+
+      </div>
     </div>
 </div>
 
 
-<div class="post-card-center">
-<div class="post-card-main">
+<div class="post-footer">
+  
 
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/08/top/">
-          
-          快手定制化微码</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            快手定制化微码
-请点击链接下载快手微码，链接内容实时更新
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">
-          
-          电源频繁报Predictive failure</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            故障现象：
-故障原因为AcBel电源风扇设置的high fan speed threshold太低，导致电源还在正常工作时触发了风扇的临界值，报出pfa。电源微码已经通过验证，可以通过XCC去升级电源微码，不需要更换硬件。
-
-此问题日志里面有power报错但实际机器电源灯正常未亮故障灯。
-报错如下：
-
-
-解决方案：
-升级电源微码至2.62
-电源微码升级步骤：
-1、先将电源模式调整为冗余模式（Red
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/09/GPU%E5%B8%A6%E5%AE%BD%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/">
-          
-          GPU带宽问题处理流程</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            ！！操作前联系李昊，每操作一步都要反馈！！！！！！
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-          
-          SR655 FAN1报错解决方案</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            故障现象：
-机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/08/%E4%B8%BB%E6%9D%BF%E7%94%B5%E5%8E%8B%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-          
-          主板电压报错解决方案</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            故障现象
-报错信息：Sensor SysBrd Vol Fault has transitioned to critical from a less severe state
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/08/%E4%B8%89%E6%98%9F01KR356%E5%86%85%E5%AD%98%E6%89%B9%E9%87%8F%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AF%BC/">
-          
-          三星01KR356内存批量更换指导</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            背景:
-出货快手一批配有三星01KR356内存的机器出现有批次性的故障，一共8039台，需要批量性更换。
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/08/%E5%BF%AB%E6%89%8BPXE%E8%BD%AE%E8%AE%AD%E4%B8%8D%E5%BC%95%E5%AF%BCPXE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-          
-          快手PXE轮训不引导PXE解决方案</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            ·涉及机型：SR650&#x2F;SR590&#x2F;SR570&#x2F;SR655
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/07/LSI-HBA%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4HBA%E5%BC%82%E5%B8%B8%E9%87%8D%E5%90%AF%E5%8F%8A%E7%A1%AC%E7%9B%98I-O-error/">
-          
-          LSI HBA驱动问题导致HBA异常重启及硬盘I/O error</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            解决方案：
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/04/07/kwai/">
-          
-          LSI HBA firmware问题导致盘符乱序</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            解决方案：
-        </p>
-        <div class="index-btm post-metas">
-          
-          
-        </div>
-      </article>
-    </div>
-  
 </div>
-</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    </div>
+
+</article>
+
 
         </div>
         
@@ -702,6 +551,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 <div class="p-btn">
     
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+    
     <a href="#top" class="click-btn">
       <i id="i-up"></i>
     </a>
@@ -736,8 +587,50 @@ header .header__right .dropdown-menus .dropdown-menu {
 </script>
 
 
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
 
 
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
 
 
 
