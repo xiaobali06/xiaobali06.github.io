@@ -459,15 +459,23 @@ header .header__right .dropdown-menus .dropdown-menu {
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>梦爱吃鱼</title>
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/GlumeL/Static@master/Butterfly/Glume/img/favicon.ico"> 
+  <link rel="stylesheet" href="css/love.css"> 
+  <script src="https://cdn.jsdelivr.net/gh/GlumeL/Static@master/Butterfly/Glume/js/Valine.min.js"></script> 
  </head> 
  <body> 
   <div class="main"> 
-   <p id="lovexhjSitetime" class="lovetime"></p> 
+   <!-- 左边的头像 --> 
+   <div class="love"> 
+    <img src="https://q.qlogo.cn/g?b=qq&nk=1793890332&s=640" alt="love"> 
+    <!-- 中间的图片 --> 
+    <img src="/xtxt/love.png" alt="love"> 
+    <!-- 右边的头像 --> 
+    <img src="https://q.qlogo.cn/g?b=qq&nk=1034630181&s=640" alt="love"> 
+    <p id="lovexhjSitetime" class="lovetime"></p> 
    </div> 
-   
+  </div> 
   <div id="vcomments"></div> 
-  <footer class="footer-nav"> 
-  </footer> 
   <script>
       var valine = new Valine();
       valine.init({
