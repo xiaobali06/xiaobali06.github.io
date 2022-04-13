@@ -28,6 +28,20 @@
 <p>2、到固件升级界面，上传微码进行升级，注意两个电源要逐一升级，操作升级电源微码不可以断电；</p>
 <p>3、升级完成后再将电源模式改回至非冗余模式；</p>
 <p>4、清理日志，反馈结单。</p>
+<p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/fgx.jpg"></p>
+<p>The failure occurs when server with following AcBel power      </p>
+<p>supply installed:                                                                            </p>
+<pre><code>AcBel 750W PT FSF055-EL0G, FRU 01PF515, firmware version   
+
+2.61 and prior version. 
+</code></pre>
+<p>The problem is resolved by following AcBel power supply unit   </p>
+<p>(PSU) firmware list below.                                           </p>
+<pre><code>AcBel 750W PT FSF055-EL0G, firmware version 2.62            
+</code></pre>
+<p>DETAILS:                                                                                                                      </p>
+<p>It is false alert from power supply because of incorrect fan   </p>
+<p>speed threshold setting.</p>
 ]]></content>
   </entry>
   <entry>
