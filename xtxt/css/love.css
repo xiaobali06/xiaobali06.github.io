@@ -14,7 +14,6 @@ a {
 
 .main img {
     width: 700px;
-    border-radius: 70%;
 }
 
 .love {
@@ -26,7 +25,7 @@ a {
     background: linear-gradient(to right, #f193a3,#16a8e4);
     -webkit-background-clip: text;
     color: transparent;
-    padding: 10px 250px;
+    padding: 10px 10px;
 }
 
 #vcomments {
