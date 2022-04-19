@@ -16,6 +16,9 @@
     <url>/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<p>故障现象：</p>
 <p>主板PL77和PL114电感烧毁，经分析确定主板上的MOSFET不良导致。<br>主板PL75电感烧毁，经分析确认为PQ1 MOSFET不良导致。</p>
+<span id="more"></span>
+
+
 <p>解决方案：</p>
 <p>如果遇到类似故障，先检查机房环境是否异常，检查主板上除了烧毁的地方还有没有其他非损痕迹，若有其他非损请提供照片等相关信息给L2、SDM确认，若是确定的这个已知问题，请正常更换主板。</p>
 ]]></content>
@@ -140,7 +143,7 @@
 <p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
 <p>2、 更换整机全部内存；</p>
 <p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
-<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#x6b;&#117;&#x61;&#105;&#115;&#104;&#x6f;&#117;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#x2e;&#x37;&#x30;&#46;&#x31;&#50;&#x35;">&#x6b;&#117;&#x61;&#105;&#115;&#104;&#x6f;&#117;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#x2e;&#x37;&#x30;&#46;&#x31;&#50;&#x35;</a>】</p>
+<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#107;&#x75;&#x61;&#105;&#115;&#x68;&#111;&#x75;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#55;&#x30;&#46;&#x31;&#50;&#53;">&#107;&#x75;&#x61;&#105;&#115;&#x68;&#111;&#x75;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#55;&#x30;&#46;&#x31;&#50;&#53;</a>】</p>
 <p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
 <p>6、 下载FFDC解析工具：<a href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
 <p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>
