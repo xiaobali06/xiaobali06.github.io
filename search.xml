@@ -14,21 +14,21 @@
   <entry>
     <title>SR590 主板电感烧毁问题说明</title>
     <url>/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<p>问题背景：</p>
+    <content><![CDATA[<p><b>问题背景：</b></p>
 <p>售后维护中发现Thinksystem SR590 有几例主板电感烧毁的案例，这些主机均来自标准数据机房。烧毁电感位置PL77&#x2F;PL114 , 或者PL75&#x2F;PL89.<br>经过FA调查确定是主板上的PQ1&#x2F;PQ2 MOSFET不良导致. 具体请参考下文。</p>
-<p><span style="color:#FF0000;">此为内部资料，请勿外传。</span><br>此为内部资料，请勿外传。</p>
+<p><span style="color:#FF0000;">此为内部资料，请勿外传。</span><br>‘此为内部资料，请勿外传。’</p>
 <span id="more"></span>
 
-<p>故障现象<br>机器无法开机，可能无法登陆管理口，主板上PL77 和 PL114电感位置烧毁， 或者主板上PL75&#x2F;PL89 电感位置烧毁。</p>
-<p>受影响机型<br>Thinksystem SR590&#x2F;SR570</p>
-<p>故障原因<br>1，PL77和PL114 ：主板上PQ2 MOSFET 损坏且对地短路,导致P5V电流瞬间大幅增强，使得PL77和PL114电感无法负荷而烧毁。<br>2，PL75和PL89:   主板上PQ1 MOSFET损坏且对地短路，导致P3.3V电流瞬间大幅增强，使得PL75和PL89电感无法负荷而烧毁。</p>
+<p><b>故障现象：</b><br>机器无法开机，可能无法登陆管理口，主板上PL77 和 PL114电感位置烧毁， 或者主板上PL75&#x2F;PL89 电感位置烧毁。</p>
+<p><b>受影响机型：</b><br>Thinksystem SR590&#x2F;SR570</p>
+<p><b>故障原因：</b><br>1，PL77和PL114 ：主板上PQ2 MOSFET 损坏且对地短路,导致P5V电流瞬间大幅增强，使得PL77和PL114电感无法负荷而烧毁。<br>2，PL75和PL89:   主板上PQ1 MOSFET损坏且对地短路，导致P3.3V电流瞬间大幅增强，使得PL75和PL89电感无法负荷而烧毁。</p>
 <p>PL77 和 PL114在下图红框位置，接近NVMe 2–3 connector：</p>
 <p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/1.jpg"></p>
 <p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/2.jpg"></p>
 <p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/3.jpg"></p>
 <p>PL75 和 PL89在下图红框位置，接近主机后端VGA 接口位置：<br><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/4.png"></p>
 <p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/5.png"></p>
-<p>解决方案：</p>
+<p><b>解决方案：</b></p>
 <p>SR590 主板设计符合UL V-1等级防火要求，类似上述案例的电感烧毁现象不会导致主板起火。目前未发现此问题有批量爆发的迹象，故障率在可接受范围内，在机房环境没有异常的情况下，请fix on failed更换主板处理。<br>更换主板前请根据非损处理流程通知L2、SDM并提供相关照片等信息进行确认。</p>
 ]]></content>
   </entry>
@@ -152,7 +152,7 @@
 <p>1、 维修64G内存前请先收集故障机器FFDC日志；</p>
 <p>2、 更换整机全部内存；</p>
 <p>3、 检查故障机器固件版本，若低于20D，请升级固件版本至快手定制20D[SR590的机器升级至20B]；</p>
-<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#x6b;&#117;&#97;&#105;&#115;&#104;&#x6f;&#117;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#55;&#x30;&#46;&#49;&#x32;&#x35;">&#x6b;&#117;&#97;&#105;&#115;&#104;&#x6f;&#117;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#55;&#x30;&#46;&#49;&#x32;&#x35;</a>】</p>
+<p>4、 若换的是三星的内存，运行step test，运行完成后收集FFDC日志；【memory STEP： &lt;Test + Repair&gt;OneCli.exe config set lIMM.UEFIMemoryTest repair –override –immadmin:<a href="mailto:&#x6b;&#x75;&#x61;&#x69;&#x73;&#x68;&#x6f;&#117;&#x40;&#49;&#57;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#x37;&#48;&#46;&#x31;&#50;&#x35;">&#x6b;&#x75;&#x61;&#x69;&#x73;&#x68;&#x6f;&#117;&#x40;&#49;&#57;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#x37;&#48;&#46;&#x31;&#50;&#x35;</a>】</p>
 <p>5、 按照‘快手三星01KR356批量换件记录’表格模板登记记录换上件与换下件信息并当日反馈李昊（快手三星01KR356批量换件记录下载链接：<a href="https://mdl.ink/QgBsQx">https://mdl.ink/QgBsQx</a> ;  密码：kwai）；</p>
 <p>6、 下载FFDC解析工具：<a href="https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip%EF%BC%9B">https://download.lenovo.com/servers/Tzz_tar_tools_v1.zip；</a></p>
 <p>7、 解压工具到某一硬盘根目录，目录过深影响工具使用，可能分析失败，另需要把收集的FFDC日志放到此工具的根目录下；</p>
