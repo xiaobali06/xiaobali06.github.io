@@ -8,13 +8,14 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/source/favicon.ico">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>主板烧焦故障合集 - 李尚往来</title>
+    <title>SR590 主板电感烧毁问题说明 - 李尚往来</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;故障现象：&lt;/p&gt;
-&lt;p&gt;主板PL77和PL114电感烧毁，经分析确定主板上的MOSFET不良导致。&lt;br&gt;主板PL75电感烧毁，经分析确认为PQ1 MOSFET不良导致。&lt;/p&gt;">
+    <meta name="description" content="&lt;p&gt;问题背景：&lt;/p&gt;
+&lt;p&gt;售后维护中发现Thinksystem SR590 有几例主板电感烧毁的案例，这些主机均来自标准数据机房。烧毁电感位置PL77&amp;#x2F;PL114 , 或者PL75&amp;#x2F;PL89.&lt;br&gt;经过FA调查确定是主板上的PQ1&amp;#x2F;PQ2 MOSFET不良导致. 具体请参考下文。&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:#FF0000;&#34;&gt;此为内部资料，请勿外传。&lt;/span&gt;&lt;br&gt;此为内部资料，请勿外传。&lt;/p&gt;">
     <meta name="author" content="xiaobali">
     <meta name="keywords" content="">
     <style>
@@ -448,7 +449,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <article class="page">
 <div id="post-meta-m">
     <div class="post-meta" id="post-meta">
-  <h3>主板烧焦故障合集</h3>
+  <h3>SR590 主板电感烧毁问题说明</h3>
     
       <span class="post-meta-label">
         xiaobali
@@ -482,13 +483,22 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p>故障现象：</p>
-<p>主板PL77和PL114电感烧毁，经分析确定主板上的MOSFET不良导致。<br>主板PL75电感烧毁，经分析确认为PQ1 MOSFET不良导致。</p>
+        <p>问题背景：</p>
+<p>售后维护中发现Thinksystem SR590 有几例主板电感烧毁的案例，这些主机均来自标准数据机房。烧毁电感位置PL77&#x2F;PL114 , 或者PL75&#x2F;PL89.<br>经过FA调查确定是主板上的PQ1&#x2F;PQ2 MOSFET不良导致. 具体请参考下文。</p>
+<p><span style="color:#FF0000;">此为内部资料，请勿外传。</span><br>此为内部资料，请勿外传。</p>
 <span id="more"></span>
 
-
+<p>故障现象<br>机器无法开机，可能无法登陆管理口，主板上PL77 和 PL114电感位置烧毁， 或者主板上PL75&#x2F;PL89 电感位置烧毁。</p>
+<p>受影响机型<br>Thinksystem SR590&#x2F;SR570</p>
+<p>故障原因<br>1，PL77和PL114 ：主板上PQ2 MOSFET 损坏且对地短路,导致P5V电流瞬间大幅增强，使得PL77和PL114电感无法负荷而烧毁。<br>2，PL75和PL89:   主板上PQ1 MOSFET损坏且对地短路，导致P3.3V电流瞬间大幅增强，使得PL75和PL89电感无法负荷而烧毁。</p>
+<p>PL77 和 PL114在下图红框位置，接近NVMe 2–3 connector：</p>
+<p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/1.jpg"></p>
+<p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/2.jpg"></p>
+<p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/3.jpg"></p>
+<p>PL75 和 PL89在下图红框位置，接近主机后端VGA 接口位置：<br><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/4.png"></p>
+<p><img src="/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/5.png"></p>
 <p>解决方案：</p>
-<p>如果遇到类似故障，先检查机房环境是否异常，检查主板上除了烧毁的地方还有没有其他非损痕迹，若有其他非损请提供照片等相关信息给L2、SDM确认，若是确定的这个已知问题，请正常更换主板。</p>
+<p>SR590 主板设计符合UL V-1等级防火要求，类似上述案例的电感烧毁现象不会导致主板起火。目前未发现此问题有批量爆发的迹象，故障率在可接受范围内，在机房环境没有异常的情况下，请fix on failed更换主板处理。<br>更换主板前请根据非损处理流程通知L2、SDM并提供相关照片等信息进行确认。</p>
 
       </div>
     </div>
