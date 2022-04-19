@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;故障现象：&lt;/p&gt;
+    <meta name="description" content="&lt;p&gt;&lt;b&gt;故障现象：&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。&lt;/p&gt;">
     <meta name="author" content="xiaobali">
     <meta name="keywords" content="">
@@ -482,16 +482,16 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p>故障现象：</p>
+        <p><b>故障现象：</b></p>
 <p>机器有6个风扇位置，但实际配置了5颗风扇，fan1位置无风扇，一直报错fan1风扇转速低。</p>
 <span id="more"></span>
-<p>解决方案：</p>
+<p><b>解决方案：</b></p>
 <p>主板对风扇的设置正确值应该为2,   0或者1都是错误值。<br>0：must have full population of all fans  &#x2F;必须有全部风扇<br>1：no mandatory requirement  &#x2F;无强制要求<br>2：auto mode; check fan population based on the machine configuration  &#x2F;自动模式；根据机器配置检查风扇数量</p>
 <p>要更正该值：</p>
 <ol>
-<li>使用以下命令将手动虚拟风扇设置为 2：<br>#ipmitool raw 0x3c 0xa0 0x02</li>
+<li>使用以下命令将手动虚拟风扇设置为 2：<br> #ipmitool raw 0x3c 0xa0 0x02</li>
 </ol>
-<p>2.使用以下命令检查值是否正确：<br>#ipmitool raw 0x3c 0xa1</p>
+<p>2.使用以下命令检查值是否正确：<br>    #ipmitool raw 0x3c 0xa1</p>
 <ol start="3">
 <li><p>设置好新值后，重启服务器，然后再次检查该值。 </p>
 </li>
@@ -500,7 +500,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 </ol>
 <p>带外使用此命令: ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
 <p><img src="/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fengexian.png"> </p>
-<p>以下是lenovo Tips原文：</p>
+<p><span style="color:#FF0000;">以下是lenovo Tips原文：</span></p>
 <p>SR655 reports Fan 1 going low but no Fan 1 is installed - Lenovo ThinkSystem SR655</p>
 <p>Symptom：</p>
 <p>AMD-based ThinkSystem 655 comes with one-CPU five-fan configuration, with no Fan 1 installed.</p>

@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;故障现象：&lt;/p&gt;
+    <meta name="description" content="&lt;p&gt;&lt;b&gt;故障现象：&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;故障原因为AcBel电源风扇设置的high fan speed threshold太低，导致电源还在正常工作时触发了风扇的临界值，报出pfa。电源微码已经通过验证，可以通过XCC去升级电源微码，不需要更换硬件。&lt;/p&gt;
 &lt;p&gt;此问题日志里面有power报错但实际机器电源灯正常未亮故障灯。&lt;/p&gt;">
     <meta name="author" content="xiaobali">
@@ -483,7 +483,7 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p>故障现象：</p>
+        <p><b>故障现象：</b></p>
 <p>故障原因为AcBel电源风扇设置的high fan speed threshold太低，导致电源还在正常工作时触发了风扇的临界值，报出pfa。电源微码已经通过验证，可以通过XCC去升级电源微码，不需要更换硬件。</p>
 <p>此问题日志里面有power报错但实际机器电源灯正常未亮故障灯。</p>
 <span id="more"></span>
@@ -491,7 +491,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>报错如下：</p>
 <p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image001.png" alt="xcc日志报错"></p>
 <p><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image003.png" alt="sel log"></p>
-<p>解决方案：</p>
+<p><b>解决方案：</b></p>
 <p>升级电源微码至2.62</p>
 <p>电源微码升级步骤：</p>
 <p>1、先将电源模式调整为冗余模式（Redundant）；<br><img src="/2022/04/12/%E7%94%B5%E6%BA%90%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/image007.png"></p>
