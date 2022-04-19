@@ -16,7 +16,7 @@
     <url>/2022/04/18/%E4%B8%BB%E6%9D%BF%E7%83%A7%E7%84%A6%E6%95%85%E9%9A%9C%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<p><b>问题背景：</b></p>
 <p>售后维护中发现Thinksystem SR590 有几例主板电感烧毁的案例，这些主机均来自标准数据机房。烧毁电感位置PL77&#x2F;PL114 , 或者PL75&#x2F;PL89.<br>经过FA调查确定是主板上的PQ1&#x2F;PQ2 MOSFET不良导致. 具体请参考下文。</p>
-<p><span style="color:#FF0000;">此为内部资料，请勿外传。</span><br>‘此为内部资料，请勿外传。’</p>
+<p><span style="color:#FF0000;">此为内部资料，请勿外传。</span><br><code>此为内部资料，请勿外传。</code> </p>
 <span id="more"></span>
 
 <p><b>故障现象：</b><br>机器无法开机，可能无法登陆管理口，主板上PL77 和 PL114电感位置烧毁， 或者主板上PL75&#x2F;PL89 电感位置烧毁。</p>
