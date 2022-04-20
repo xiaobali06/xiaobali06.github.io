@@ -489,16 +489,22 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>主板对风扇的设置正确值应该为2,   0或者1都是错误值。<br>0：must have full population of all fans  &#x2F;必须有全部风扇<br>1：no mandatory requirement  &#x2F;无强制要求<br>2：auto mode; check fan population based on the machine configuration  &#x2F;自动模式；根据机器配置检查风扇数量</p>
 <p>要更正该值：</p>
 <ol>
-<li><p>使用以下命令将手动虚拟风扇设置为 2：<br> #ipmitool raw 0x3c 0xa0 0x02</p>
+<li><p>使用以下命令将手动虚拟风扇设置为 2：</p>
+<pre><code> #ipmitool raw 0x3c 0xa0 0x02
+</code></pre>
 </li>
-<li><p>使用以下命令检查值是否正确：<br> #ipmitool raw 0x3c 0xa1</p>
+<li><p>使用以下命令检查值是否正确：</p>
+<pre><code> #ipmitool raw 0x3c 0xa1
+</code></pre>
 </li>
 <li><p>设置好新值后，重启服务器，然后再次检查该值。 </p>
 </li>
 <li><p>如果可能，关闭服务器电源，拔下电源线，然后重新插入电源线并打开服务器电源。再次检查该值。</p>
 </li>
 </ol>
-<p>带外使用此命令:<br>        ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02</p>
+<p>带外使用此命令: </p>
+<pre><code>    ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02
+</code></pre>
 <p><img src="/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fengexian.png"> </p>
 <p><span style="color:#FF0000;">以下是lenovo Tips原文：</span></p>
 <p>SR655 reports Fan 1 going low but no Fan 1 is installed - Lenovo ThinkSystem SR655</p>
