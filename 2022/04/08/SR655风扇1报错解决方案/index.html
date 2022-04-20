@@ -490,11 +490,11 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>要更正该值：</p>
 <ol>
 <li><p>使用以下命令将手动虚拟风扇设置为 2：</p>
-<pre><code> ```#ipmitool raw 0x3c 0xa0 0x02```
+<pre><code> #ipmitool raw 0x3c 0xa0 0x02
 </code></pre>
 </li>
 <li><p>使用以下命令检查值是否正确：</p>
-<pre><code> ```#ipmitool raw 0x3c 0xa1```
+<pre><code> #ipmitool raw 0x3c 0xa1
 </code></pre>
 </li>
 <li><p>设置好新值后，重启服务器，然后再次检查该值。 </p>
@@ -503,7 +503,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 </li>
 </ol>
 <p>带外使用此命令: </p>
-<pre><code>    ```ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02```
+<pre><code>ipmitool -H 192.168.70.125 -U USERID -P PASSWORD -I lanplus raw 0x3c 0xa0 0x02
 </code></pre>
 <p><img src="/2022/04/08/SR655%E9%A3%8E%E6%89%871%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/fengexian.png"> </p>
 <p><span style="color:#FF0000;">以下是lenovo Tips原文：</span></p>
