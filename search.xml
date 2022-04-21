@@ -95,12 +95,12 @@
 <p>主板对风扇的设置正确值应该为2,   0或者1都是错误值。<br>0：must have full population of all fans  &#x2F;必须有全部风扇<br>1：no mandatory requirement  &#x2F;无强制要求<br>2：auto mode; check fan population based on the machine configuration  &#x2F;自动模式；根据机器配置检查风扇数量</p>
 <p>要更正该值：</p>
 <ol>
-<li><p>使用以下命令将手动虚拟风扇设置为 2：</p>
-<pre><code>                               <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipmitool raw 0x3c 0xa0 0x02</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>使用以下命令检查值是否正确：</p>
-</li>
+<li>使用以下命令将手动虚拟风扇设置为 2：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipmitool raw 0x3c 0xa0 0x02</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用以下命令检查值是否正确：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipmitool raw 0x3c 0xa1</span><br></pre></td></tr></table></figure>
 
